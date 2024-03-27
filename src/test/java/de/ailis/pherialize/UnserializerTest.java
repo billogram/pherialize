@@ -103,6 +103,14 @@ public class UnserializerTest extends TestCase
             .toDouble(), 0);
     }
 
+    /**
+     * Tests unserializing a double NAN
+     */
+
+     public void testUnserializeDoubleNan()
+     {
+         assertNull(Pherialize.unserialize("d:NAN;"));
+     }
 
     /**
      * Tests unserializing a Boolean

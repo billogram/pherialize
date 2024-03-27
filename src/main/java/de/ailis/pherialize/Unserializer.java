@@ -182,8 +182,12 @@ public class Unserializer
         int pos;
 
         pos = this.data.indexOf(';', this.pos + 2);
-        result = Double.valueOf(this.data.substring(this.pos + 2, pos));
-        this.pos = pos + 1;
+        String value = this.data.substring(this.pos + 2, pos);
+        this.pos = pos + 1; // ;
+        if (value.equals("NAN")) {
+            return null;
+        }
+        result = Double.valueOf(value);
         return new Mixed(result);
     }
 
